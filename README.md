@@ -1,5 +1,8 @@
-# webstar
-Development devstack with webpack 3 and Jest
+# Loan calculator
+Simple Loan calcultor created by using custom devstack Webstar
+
+## Webstar
+Development devstack with webpack 3 and testing with Jest and Enzyme
 
 ## Getting started
 ### Preparations
@@ -13,7 +16,7 @@ npm install -g webpack
 1. To clone the repository run in terminal:
 
 ```sh
-git clone https://git@github.com:Lin84/webstar.git ./PROJECT_NAME
+git clone https://git@github.com:Lin84/zony.git ./PROJECT_NAME
 ```
 
 2. Under the root of your `PROJECT_NAME` folder install package dependencies by running in terminal:
@@ -25,6 +28,13 @@ npm install
 3. **Configure the project**. Do not forget to change the respective keys in `package.json` according to your project’s info, and setup **a unique listening port** in `./webpack.config.js`.
 
 ## Workflow
+
+### Development with Server
+To start your development process with json server, in the terminal run:
+
+```sh
+npm run dev:server
+```
 ### Development
 To start your development process, in the terminal run:
 
