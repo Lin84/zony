@@ -13,6 +13,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MockWebpackPlugin = require('mock-webpack-plugin');
+const cssNano = require('cssnano');
 
 const { HotModuleReplacementPlugin, NamedModulesPlugin, optimize } = webpack;
 const { CommonsChunkPlugin, ModuleConcatenationPlugin } = optimize;
@@ -40,7 +41,7 @@ module.exports = {
     },
 
     output: {
-        path: path.resolve(__dirname + './../dist'),
+        path: path.resolve(`${__dirname}./../dist`),
         filename: 'scrips/[name].bundle.js'
     },
 
@@ -54,7 +55,7 @@ module.exports = {
                 enforce: 'pre',
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "eslint-loader"
+                loader: 'eslint-loader'
             },
             {
                 test: /\.js$/,
@@ -77,7 +78,7 @@ module.exports = {
                 use: 'file-loader?name=fonts/[name].[ext]'
             },
             {
-                test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+                test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
                 use: 'imports-loader?jQuery=jquery'
             },
             {
@@ -117,7 +118,7 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             inject: 'body',
-            template: 'html-loader?interpolate!nunjucks-html-loader!' + path.resolve('./src', 'templates/index.nunj'),
+            template: `html-loader?interpolate!nunjucks-html-loader!${  path.resolve('./src', 'templates/index.nunj')}`,
             // order in array here doesn't matters:
             chunks: [
                 'vendor',
@@ -164,24 +165,15 @@ module.exports = {
             {
                 // prevent BrowserSync from reloading the page
                 // and let Webpack Dev Server take care of this
-                reload: true
+                reload: false
             }
         ),
 
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
+            cssProcessor: cssNano,
             cssProcessorOptions: { discardComments: { removeAll: true } },
             canPrint: true
         })
-
-        // new MockWebpackPlugin({
-
-        //     // mock config content
-        //     config: mockApiConfig,
-
-        //     // the prot of the mock server
-        //     port: 5000
-        // })
     ]
 };

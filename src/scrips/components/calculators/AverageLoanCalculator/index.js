@@ -7,7 +7,6 @@ import Buttons from './Buttons';
 // ultilities:
 import average from './../../../ultilities/average';
 
-
 class AverageLoanForm extends Component {
     constructor() {
         super();
@@ -33,9 +32,9 @@ class AverageLoanForm extends Component {
 
     calculateAverageLoan(data) {
         const loanAmounts = data.map(loan => loan.amount);
-        this.setState({
-            averageLoan: average(loanAmounts)
-        });
+        const averageLoan = Number((average(loanAmounts).toFixed(2)));
+
+        this.setState({ averageLoan });
     }
 
     render() {

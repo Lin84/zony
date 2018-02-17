@@ -25,7 +25,7 @@ const app = (config) => {
     // Demo render react component connected to the Redux store:
     renderFactory(PlusOne, document.querySelectorAll('.plus-one'), {}, store);
 
-    render(AverageLoanForm, document.querySelector('.average-loan-calculator'));
+    render(AverageLoanForm, document.querySelector('.calculator'));
 };
 
 app(window.config);
