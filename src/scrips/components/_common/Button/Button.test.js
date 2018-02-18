@@ -1,15 +1,13 @@
 /**
- * example:
  * describe('rendering'):
  * // contains everything related to rendered output
  * describe('callbacks' / interactions /):
  * // contains everything related to callback functions and interactions
- * describe('lifecycle'):
- * contains tests related to react lifecycle functions
  */
 
 import React from 'react';
 import { shallow } from 'enzyme';
+
 import Button from './index';
 
 /**
@@ -31,9 +29,9 @@ describe('rendering', () => {
     let wrapper;
 
     beforeEach(() => {
-        const props = createTestProps()
+        const props = createTestProps();
         wrapper = createWrapper(props);
-    })
+    });
 
     it('should render a <Button />', () => {
         expect(wrapper.find('button')).toHaveLength(1);
@@ -53,7 +51,7 @@ describe('rendering', () => {
 
     describe('primary type', () => {
         beforeEach(() => {
-            const props = createTestProps({class: 'btn-primary'})
+            const props = createTestProps({ customClass: 'btn-primary' });
             wrapper = createWrapper(props);
         });
 
@@ -68,7 +66,7 @@ describe('interaction', () => {
     let props;
 
     beforeEach(() => {
-        props = createTestProps({ handleClick: jest.fn()});
+        props = createTestProps({ handleClick: jest.fn() });
         wrapper = createWrapper(props);
     });
 
@@ -78,6 +76,6 @@ describe('interaction', () => {
         });
         it('should call the onClick callBack', () => {
             expect(props.handleClick).toHaveBeenCalledTimes(1);
-        })
-    })
-})
+        });
+    });
+});

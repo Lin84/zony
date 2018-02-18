@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// components:
+/* Components */
 import Button from './../../_common/Button';
 
 const Buttons = (props) => {
-    const { handleClick, buttonsDefinition } = props;
+    const { handleClick, buttonDefinitions } = props;
 
-    const allButtons = buttonsDefinition.map((definition) => {
+    const allButtons = buttonDefinitions.map((definition) => {
         return (
             <Button
                 label={definition.label}
@@ -27,7 +27,7 @@ const Buttons = (props) => {
 
 Buttons.propTypes = {
     handleClick: PropTypes.func.isRequired,
-    buttonsDefinition: PropTypes.arrayOf(PropTypes.object).isRequired
+    buttonDefinitions: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default Buttons;

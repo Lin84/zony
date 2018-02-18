@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-// components:
+/* Components */
 import Buttons from './Buttons';
 
-// ultilities:
+/* ultilities */
 import average from './../../../ultilities/average';
 
 class AverageLoanForm extends Component {
@@ -78,7 +78,7 @@ class AverageLoanForm extends Component {
         return (
             <div>
                 <h1>{`Average Loans: ${this.state.averageLoan}`}</h1>
-                <Buttons handleClick={this.handleClick} buttonsDefinition={this.buttonDefinitions} />
+                <Buttons handleClick={this.handleClick} buttonDefinitions={this.buttonDefinitions} />
             </div>
         );
     }

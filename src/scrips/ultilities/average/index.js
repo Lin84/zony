@@ -1,11 +1,10 @@
-function average(a) {
+const average = (a) => {
     if (a.length) {
-        const { length } = a;
         const total = a.reduce((accumulator, currentValue) => accumulator + currentValue);
-        return total / length;
+        return total / a.length;
     }
 
-    return undefined;
-}
+    return null;
+};
 
-module.exports = average;
+export default average;

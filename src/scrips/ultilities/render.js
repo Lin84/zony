@@ -22,9 +22,7 @@ export function render(Component, container, props, store) {
             }
         }
     } catch (e) {
-        /* eslint-disable */
         console.error(e);
-        /* eslint-enable */
     }
 }
 

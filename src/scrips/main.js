@@ -10,7 +10,6 @@ import configureStore from './redux/store/configureStore';
 import { render, renderFactory } from './ultilities/render';
 import Headline from './components/_common/Headline';
 import PlusOne from './components/plus-one/PlusOne';
-// import Button from './components/_common/Button';
 import AverageLoanForm from './components/calculators/AverageLoanCalculator';
 
 /**
