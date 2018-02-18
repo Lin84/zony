@@ -17,9 +17,46 @@ class AverageLoanForm extends Component {
         this.state = {
             averageLoan: 0
         };
+
+        this.buttonDefinitions = [
+            {
+                rating: 'A',
+                label: 'A'
+            },
+            {
+                rating: 'AA',
+                label: 'A+'
+            },
+            {
+                rating: 'AAA',
+                label: 'A++'
+            },
+            {
+                rating: 'AAAA',
+                label: 'A*'
+            },
+            {
+                rating: 'AAAAA',
+                label: 'A**'
+            },
+            {
+                rating: 'B',
+                label: 'B'
+            },
+            {
+                rating: 'C',
+                label: 'B'
+            },
+            {
+                rating: 'D',
+                label: 'D'
+            }
+        ];
     }
 
-    handleClick(endpoint) {
+    handleClick(rating) {
+        const endpoint = `http://localhost:3000/loanRating${rating}`;
+
         axios({
             url: endpoint,
             method: 'get'
@@ -41,7 +78,7 @@ class AverageLoanForm extends Component {
         return (
             <div>
                 <h1>{`Average Loans: ${this.state.averageLoan}`}</h1>
-                <Buttons handleClick={this.handleClick} />
+                <Buttons handleClick={this.handleClick} buttonsDefinition={this.buttonDefinitions} />
             </div>
         );
     }
