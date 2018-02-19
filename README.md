@@ -30,7 +30,7 @@ npm install
 ## Workflow
 
 ### Development with Server
-To start your development process with json server, in the terminal run:
+To start your development process with json server, in the terminal run and and point your browser to http://localhost:5500:
 
 ```sh
 npm run dev:server
