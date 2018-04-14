@@ -78,7 +78,7 @@ module.exports = {
                 use: 'file-loader?name=fonts/[name].[ext]'
             },
             {
-                test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+                test: /bootstrap-sass[/\\]assets[/\\]javascripts[/\\]/,
                 use: 'imports-loader?jQuery=jquery'
             },
             {
@@ -118,7 +118,7 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             inject: 'body',
-            template: `html-loader?interpolate!nunjucks-html-loader!${  path.resolve('./src', 'templates/index.nunj')}`,
+            template: `html-loader?interpolate!nunjucks-html-loader!${path.resolve('./src', 'templates/index.nunj')}`,
             // order in array here doesn't matters:
             chunks: [
                 'vendor',
